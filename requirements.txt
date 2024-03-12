@@ -1,0 +1,2 @@
+aiohttp-jinja2==1.6
+black==24.2.0
