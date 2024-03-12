@@ -13,7 +13,7 @@ aiohttp_jinja2.setup(
     app, loader=jinja2.FileSystemLoader(Path(__file__).parent / "templates")
 )
 
-turbo = Turbo(app)
+turbo = Turbo()
 
 todos = [Todo("buy eggs"), Todo("walk the dog")]
 
