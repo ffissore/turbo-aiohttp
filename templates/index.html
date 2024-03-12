@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url('static', filename='base.css') }}">
+    <link rel="stylesheet" href="{{ url('static', filename='index.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@hotwired/turbo@8.0.4/dist/turbo.es2017-umd.min.js"></script>
+    <script>
+        Turbo.connectStreamSource(new WebSocket(`ws${location.protocol.substring(4)}//${location.host}/turbo-stream`));
+    </script>
+</head>
+<body>
+<div class="todoapp">
+    <h1>todos</h1>
+    <turbo-frame id="all">
+        <form method="POST" id="form">
+            {% include '_todo_input.html' %}
+        </form>
+        <ul class="todo-list">
+            <turbo-frame id="todos">
+                {% for todo in todos %}
+                {% include '_todo.html' %}
+                {% endfor %}
+            </turbo-frame>
+        </ul>
+    </turbo-frame>
+</div>
+</body>
+</html>

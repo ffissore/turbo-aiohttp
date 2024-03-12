@@ -1,0 +1,15 @@
+<turbo-frame id="todo-{{ todo.id }}">
+  <li{% if todo.completed %} class="completed"{% endif %}>
+    <form method="POST" action="{{ url('toggle', id=todo.id) }}">
+        <input type="submit" class="toggle{% if todo.completed %} checked{% endif %}">
+        <label></label>
+    </form>
+    <label>{{ todo.task }}</label>
+    <form method="GET" action="{{ url('edit', id=todo.id) }}">
+        <button type="submit" class="change"></button>
+    </form>
+    <form method="POST" action="{{ url('delete', id=todo.id) }}">
+        <button type="submit" class="destroy"></button>
+    </form>
+  </li>
+</turbo-frame>
