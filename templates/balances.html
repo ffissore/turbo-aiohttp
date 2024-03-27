@@ -1,0 +1,5 @@
+<turbo-frame id="balances">
+    {% for asset in assets %}
+        <div>{{ asset['id'] }}: {{ asset['balance']['available'] }}</div>
+    {% endfor %}
+</turbo-frame>

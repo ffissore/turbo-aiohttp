@@ -1,0 +1,17 @@
+<turbo-frame id="script-holder">
+    <script>
+        if (window.nbxTokenListener != null) {
+            document.removeEventListener('turbo:before-fetch-request', window.nbxTokenListener);
+            window.nbxTokenListener = null;
+        }
+
+        window.nbxTokenListener = (event) => {
+            event.preventDefault();
+            event.detail.fetchOptions.headers["Authorization"] = "Bearer {{ token }}";
+            event.detail.fetchOptions.headers["X-Nbx-Sub-Fingerprint"] = "{{ fingerprint }}";
+            event.detail.resume();
+        };
+
+        document.addEventListener('turbo:before-fetch-request', window.nbxTokenListener);
+    </script>
+</turbo-frame>
