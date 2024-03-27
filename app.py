@@ -7,6 +7,7 @@ from aiohttp_jinja2 import render_string, render_template
 
 from models import Todo
 from turbo import Turbo
+from gabor import ROUTES
 
 app = web.Application()
 aiohttp_jinja2.setup(
@@ -97,7 +98,7 @@ app.add_routes(
         web.get("/edit/{id}", edit, name="edit"),
         web.post("/edit/{id}", edit, name="edit"),
         web.post("/delete/{id}", delete, name="delete"),
-    ]
+    ] + ROUTES
 )
 
 web.run_app(app)

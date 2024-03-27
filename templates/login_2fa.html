@@ -1,0 +1,10 @@
+<turbo-frame id="login">
+    <form action="/gabor/login_2fa" method="POST">
+        <div>
+            <label for="code">2fa code</label>
+            <input type="text" name="code" id="code" placeholder="123456">
+        </div>
+        <input type="hidden" name="token" value="{{ token }}">
+        <div><input type="submit" value="Login"></div>
+    </form>
+</turbo-frame>
